@@ -158,6 +158,7 @@ fun DrawScope.drawArcs(progress: Float, maxValue: Float) {
         )
     }
 
+    //init functions
     drawBlur()
     drawStroke()
     drawGradient()
