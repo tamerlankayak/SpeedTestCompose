@@ -111,6 +111,7 @@ fun DrawScope.drawLines(progress: Float, maxValue: Float, numberOfLines: Int = 4
     }
 }
 
+//arcs with nested functions
 fun DrawScope.drawArcs(progress: Float, maxValue: Float) {
     val startAngle = 270 - maxValue / 2
     val sweepAngle = maxValue * progress
