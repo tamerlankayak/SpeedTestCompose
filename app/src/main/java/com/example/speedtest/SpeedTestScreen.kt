@@ -93,6 +93,7 @@ fun CircularSpeedIndicator(value: Float, angle: Float) {
     }
 }
 
+//drawing indication lines
 fun DrawScope.drawLines(progress: Float, maxValue: Float, numberOfLines: Int = 40) {
     val oneRotation = maxValue / numberOfLines
     val startValue = if (progress == 0f) 0 else floor(progress * numberOfLines).toInt() + 1
