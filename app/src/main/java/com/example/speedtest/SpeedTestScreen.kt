@@ -238,6 +238,7 @@ fun Header() {
     )
 }
 
+//preview of composable views
 @Preview(showBackground = true)
 @Composable
 fun SpeedTestScreenPreview() {
