@@ -145,7 +145,7 @@ fun DrawScope.drawArcs(progress: Float, maxValue: Float) {
             style = Stroke(width = 86f, cap = StrokeCap.Round)
         )
     }
-
+    //gradient color giving new view o arc
     fun drawGradient() {
         drawArc(
             brush = GreenGradient,
