@@ -43,6 +43,7 @@ import com.example.speedtest.ui.theme.GreenGradient
 import com.example.speedtest.ui.theme.LightColor
 import kotlin.math.floor
 
+//screens of speed
 @Composable
 fun SpeedTestScreen() {
 
