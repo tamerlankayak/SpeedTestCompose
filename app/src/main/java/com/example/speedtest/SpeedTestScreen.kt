@@ -1,5 +1,7 @@
 package com.example.speedtest
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,13 +17,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -32,8 +39,10 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.speedtest.ui.theme.ComposeSpeedTestTheme
 import com.example.speedtest.ui.theme.DarkColor
 import com.example.speedtest.ui.theme.DarkGradient
@@ -42,16 +51,19 @@ import com.example.speedtest.ui.theme.Green500
 import com.example.speedtest.ui.theme.GreenGradient
 import com.example.speedtest.ui.theme.LightColor
 import kotlin.math.floor
+import kotlin.math.max
 
 //screens of speed
 @Composable
 fun SpeedTestScreen() {
+    val coroutineScope = rememberCoroutineScope()
 
-    Column(Modifier.fillMaxSize()) {
-
-    }
-
+    val animation = remember { Animatable(0f) }
+    val maxSpeed = remember { mutableStateOf(0f) }
+    maxSpeed.value = max(maxSpeed.value, animation.value * 100f)
 }
+
+
 
 @Composable
 private fun SpeedTestScreen(state: UiState, onClick: () -> Unit) {
@@ -78,7 +90,26 @@ fun SpeedIndicator(state: UiState, onClick: () -> Unit) {
             .aspectRatio(1f)
     ) {
         CircularSpeedIndicator(state.arcValue, 240f)
+        StartButton(!state.inProgress, onClick)
+        SpeedValue(value = state.speed)
+    }
+}
 
+@Composable
+fun SpeedValue(value: String) {
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "DOWNLOAD", style = MaterialTheme.typography.caption)
+        Text(
+            text = value,
+            fontSize = 45.sp,
+            color = Color.White,
+            fontWeight = FontWeight.Bold
+        )
+        Text(text = "mbps", style = MaterialTheme.typography.caption)
     }
 }
 
@@ -91,6 +122,20 @@ fun CircularSpeedIndicator(value: Float, angle: Float) {
     ) {
         drawLines(value, angle)
         drawArcs(value, angle)
+    }
+}
+
+@Composable
+fun StartButton(isEnabled: Boolean, onClick: () -> Unit) {
+    OutlinedButton(
+        onClick = onClick,
+        modifier = Modifier.padding(bottom = 24.dp),
+        enabled = isEnabled,
+        shape = RoundedCornerShape(24.dp),
+        border = BorderStroke(width = 2.dp, color = MaterialTheme.colors.onSurface)
+
+    ) {
+        Text(text = "START", modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp))
     }
 }
 
@@ -146,6 +191,7 @@ fun DrawScope.drawArcs(progress: Float, maxValue: Float) {
             style = Stroke(width = 86f, cap = StrokeCap.Round)
         )
     }
+
     //gradient color giving new view o arc
     fun drawGradient() {
         drawArc(
