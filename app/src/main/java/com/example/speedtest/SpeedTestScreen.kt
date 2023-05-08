@@ -1,6 +1,7 @@
 package com.example.speedtest
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -50,8 +51,10 @@ import com.example.speedtest.ui.theme.Green200
 import com.example.speedtest.ui.theme.Green500
 import com.example.speedtest.ui.theme.GreenGradient
 import com.example.speedtest.ui.theme.LightColor
+import kotlinx.coroutines.launch
 import kotlin.math.floor
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 //screens of speed
 @Composable
@@ -61,9 +64,21 @@ fun SpeedTestScreen() {
     val animation = remember { Animatable(0f) }
     val maxSpeed = remember { mutableStateOf(0f) }
     maxSpeed.value = max(maxSpeed.value, animation.value * 100f)
+
+    SpeedTestScreen(state = animation.toUiState(maxSpeed.value)) {
+        coroutineScope.launch {
+            maxSpeed.value = 0f
+        }
+    }
 }
 
-
+fun Animatable<Float, AnimationVector1D>.toUiState(maxSpeed: Float) = UiState(
+    arcValue = value,
+    speed = "%.1f".format(value * 100),
+    ping = if (value > 0.2f) "${(value * 15).roundToInt()} ms" else "-",
+    maxSpeed = if (maxSpeed > 0f) "%.1f mbps".format(maxSpeed) else "-",
+    inProgress = isRunning
+)
 
 @Composable
 private fun SpeedTestScreen(state: UiState, onClick: () -> Unit) {
