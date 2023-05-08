@@ -1,5 +1,6 @@
 package com.example.speedtest
 
+//states model
 class UiState(
     val speed: String = "",
     val ping: String = "-",
