@@ -75,7 +75,7 @@ fun SpeedTestScreen() {
         }
     }
 }
-
+//static values for animtations
 suspend fun startAnimation(animation: Animatable<Float, AnimationVector1D>) {
     animation.animateTo(0.84f, keyframes {
         durationMillis = 9000
