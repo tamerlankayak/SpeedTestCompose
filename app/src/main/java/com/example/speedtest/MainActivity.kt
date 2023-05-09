@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize(),
                 ) {
+                    //init screen of speed
                     SpeedTestScreen()
                 }
             }
