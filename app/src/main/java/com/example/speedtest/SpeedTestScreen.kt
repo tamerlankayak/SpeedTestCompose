@@ -58,7 +58,7 @@ import kotlinx.coroutines.launch
 import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.roundToInt
-//all ui components is customazible
+//all ui components is customizable
 //screens of speed
 @Composable
 fun SpeedTestScreen() {
