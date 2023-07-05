@@ -9,7 +9,7 @@ https://github.com/tamerlankayak/SpeedTestCompose/assets/29164777/f6c9ab23-9b43-
 
 This is a custom curved progress bar built with Jetpack Compose, which allows you to create dynamic and visually appealing animations for your Android app. The progress bar is animatable and shows the speed of a process. 
 
-## Features
+## Features 
 
 * Sleek and modern design
 * Animatable display of speed
