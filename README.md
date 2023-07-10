@@ -22,7 +22,7 @@ Contributions are welcome! If you find a bug or want to suggest a new feature, p
 
 ## Author
 
-Created by Tamerlan Mustafayev
+Created by Tamerlan Mustafayev 
 
 
 
