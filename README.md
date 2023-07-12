@@ -20,7 +20,7 @@ This is a custom curved progress bar built with Jetpack Compose, which allows yo
 
 Contributions are welcome! If you find a bug or want to suggest a new feature, please open an issue or submit a pull request.
 
-## Author
+## Author 
 
 Created by Tamerlan Mustafayev 
 
