@@ -14,7 +14,7 @@ This is a custom curved progress bar built with Jetpack Compose, which allows yo
 * Sleek and modern design
 * Animatable display of speed
 * Customizable colors
-* Optimized for performance
+* Optimized for performance 
 
 ## Contributing 
 
