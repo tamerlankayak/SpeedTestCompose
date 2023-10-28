@@ -28,3 +28,5 @@ Created by Tamerlan Mustafayev
 
 
 ![550px-Android_logo_2019_(stacked) svg](https://user-images.githubusercontent.com/29164777/236696186-66321be8-b54e-4426-91a3-265e6d0220a1.png)
+
+Referance https://www.youtube.com/watch?v=8LuWMYXW6nw&t=24s
