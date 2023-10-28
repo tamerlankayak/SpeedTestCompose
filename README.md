@@ -16,16 +16,6 @@ This is a custom curved progress bar built with Jetpack Compose, which allows yo
 * Customizable colors
 * Optimized for performance 
 
-## Contributing 
-
-Contributions are welcome! If you find a bug or want to suggest a new feature, please open an issue or submit a pull request.
-
-## Author  
-
-Tamerlan Mustafayev 
-
-
-
 
 ![550px-Android_logo_2019_(stacked) svg](https://user-images.githubusercontent.com/29164777/236696186-66321be8-b54e-4426-91a3-265e6d0220a1.png)
 
